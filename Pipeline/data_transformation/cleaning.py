@@ -10,9 +10,9 @@ import sqlite3
 
 
 import pandas as pd
-def clean_pipeline():
+def transform_pipeline():
     def create_connection():
-        conn = sqlite3.connect('/Users/cameronlooney/PyCharm/nba/nba.db')
+        conn = sqlite3.connect('/nba.db')
         return conn
 
     def clean_team_data():
@@ -75,8 +75,6 @@ def clean_pipeline():
     df = combine_data()
     df = fix_datatypes(df)
     return df
-df = clean_pipeline()
-print(df)
 
 
 
