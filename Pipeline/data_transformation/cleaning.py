@@ -12,7 +12,7 @@ import sqlite3
 import pandas as pd
 def transform_pipeline():
     def create_connection():
-        conn = sqlite3.connect('/nba.db')
+        conn = sqlite3.connect('/Users/cameronlooney/PyCharm/nba_copy/nba.db')
         return conn
 
     def clean_team_data():
@@ -74,7 +74,9 @@ def transform_pipeline():
 
     df = combine_data()
     df = fix_datatypes(df)
+    df.to_csv("/Users/cameronlooney/Documents/nba_combined.csv")
     return df
+transform_pipeline()
 
 
 

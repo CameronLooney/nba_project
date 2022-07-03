@@ -1,6 +1,7 @@
 import sqlite3
 import pandas as pd
-from webscraper_script import fetch_data_mvp,years_to_scrap, get_url, all_players_html_page, fetch_all_players_data,fetch_standings
+from webscraper_script import fetch_data_mvp, fetch_all_players_data,fetch_standings
+from Pipeline.data_transformation.cleaning import transform_pipeline
 
 def extract_pipeline():
     def create_connection():
@@ -34,4 +35,5 @@ def extract_pipeline():
         df.to_sql('team_nickname', conn, if_exists='replace', index=False)
         conn.commit()
     nicknames_db()
+
 

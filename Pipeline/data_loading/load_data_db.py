@@ -1,8 +1,8 @@
 
-from Pipeline.data_transformation.cleaning import clean_pipeline
+from Pipeline.data_transformation.cleaning import transform_pipeline
 from sqlalchemy import create_engine
 def load_pipeline():
-    df = clean_pipeline()
+    df = transform_pipeline()
     def to_postgres(df, pg_user, pg_password, pg_host, pg_database,pg_port,pg_tablename):
         try:
             engine = create_engine('postgresql+psycopg2://{}:{}@{}:{}/{}'.format(pg_user, pg_password, pg_host,pg_port, pg_database))
